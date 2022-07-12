@@ -17,6 +17,10 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$HomeState {
   int get count => throw _privateConstructorUsedError;
+  List<String> get chipText => throw _privateConstructorUsedError;
+  int get choiceIndex => throw _privateConstructorUsedError;
+  String get selectData => throw _privateConstructorUsedError;
+  String get time => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomeStateCopyWith<HomeState> get copyWith =>
@@ -27,7 +31,12 @@ mixin _$HomeState {
 abstract class $HomeStateCopyWith<$Res> {
   factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) then) =
       _$HomeStateCopyWithImpl<$Res>;
-  $Res call({int count});
+  $Res call(
+      {int count,
+      List<String> chipText,
+      int choiceIndex,
+      String selectData,
+      String time});
 }
 
 /// @nodoc
@@ -41,12 +50,32 @@ class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
   @override
   $Res call({
     Object? count = freezed,
+    Object? chipText = freezed,
+    Object? choiceIndex = freezed,
+    Object? selectData = freezed,
+    Object? time = freezed,
   }) {
     return _then(_value.copyWith(
       count: count == freezed
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
               as int,
+      chipText: chipText == freezed
+          ? _value.chipText
+          : chipText // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      choiceIndex: choiceIndex == freezed
+          ? _value.choiceIndex
+          : choiceIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      selectData: selectData == freezed
+          ? _value.selectData
+          : selectData // ignore: cast_nullable_to_non_nullable
+              as String,
+      time: time == freezed
+          ? _value.time
+          : time // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -57,7 +86,12 @@ abstract class _$$_HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
           _$_HomeState value, $Res Function(_$_HomeState) then) =
       __$$_HomeStateCopyWithImpl<$Res>;
   @override
-  $Res call({int count});
+  $Res call(
+      {int count,
+      List<String> chipText,
+      int choiceIndex,
+      String selectData,
+      String time});
 }
 
 /// @nodoc
@@ -73,12 +107,32 @@ class __$$_HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? count = freezed,
+    Object? chipText = freezed,
+    Object? choiceIndex = freezed,
+    Object? selectData = freezed,
+    Object? time = freezed,
   }) {
     return _then(_$_HomeState(
       count: count == freezed
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
               as int,
+      chipText: chipText == freezed
+          ? _value._chipText
+          : chipText // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      choiceIndex: choiceIndex == freezed
+          ? _value.choiceIndex
+          : choiceIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      selectData: selectData == freezed
+          ? _value.selectData
+          : selectData // ignore: cast_nullable_to_non_nullable
+              as String,
+      time: time == freezed
+          ? _value.time
+          : time // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -86,15 +140,47 @@ class __$$_HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_HomeState with DiagnosticableTreeMixin implements _HomeState {
-  const _$_HomeState({this.count = 0});
+  const _$_HomeState(
+      {this.count = 0,
+      final List<String> chipText = const [
+        '北海道',
+        '旅行',
+        '札幌',
+        '函館',
+        '食べ物',
+        '有名',
+        '海鮮',
+        'ラーメン'
+      ],
+      this.choiceIndex = 0,
+      this.selectData = '北海道',
+      this.time = '00:00:00'})
+      : _chipText = chipText;
 
   @override
   @JsonKey()
   final int count;
+  final List<String> _chipText;
+  @override
+  @JsonKey()
+  List<String> get chipText {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_chipText);
+  }
+
+  @override
+  @JsonKey()
+  final int choiceIndex;
+  @override
+  @JsonKey()
+  final String selectData;
+  @override
+  @JsonKey()
+  final String time;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'HomeState(count: $count)';
+    return 'HomeState(count: $count, chipText: $chipText, choiceIndex: $choiceIndex, selectData: $selectData, time: $time)';
   }
 
   @override
@@ -102,7 +188,11 @@ class _$_HomeState with DiagnosticableTreeMixin implements _HomeState {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'HomeState'))
-      ..add(DiagnosticsProperty('count', count));
+      ..add(DiagnosticsProperty('count', count))
+      ..add(DiagnosticsProperty('chipText', chipText))
+      ..add(DiagnosticsProperty('choiceIndex', choiceIndex))
+      ..add(DiagnosticsProperty('selectData', selectData))
+      ..add(DiagnosticsProperty('time', time));
   }
 
   @override
@@ -110,12 +200,23 @@ class _$_HomeState with DiagnosticableTreeMixin implements _HomeState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_HomeState &&
-            const DeepCollectionEquality().equals(other.count, count));
+            const DeepCollectionEquality().equals(other.count, count) &&
+            const DeepCollectionEquality().equals(other._chipText, _chipText) &&
+            const DeepCollectionEquality()
+                .equals(other.choiceIndex, choiceIndex) &&
+            const DeepCollectionEquality()
+                .equals(other.selectData, selectData) &&
+            const DeepCollectionEquality().equals(other.time, time));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(count));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(count),
+      const DeepCollectionEquality().hash(_chipText),
+      const DeepCollectionEquality().hash(choiceIndex),
+      const DeepCollectionEquality().hash(selectData),
+      const DeepCollectionEquality().hash(time));
 
   @JsonKey(ignore: true)
   @override
@@ -124,10 +225,23 @@ class _$_HomeState with DiagnosticableTreeMixin implements _HomeState {
 }
 
 abstract class _HomeState implements HomeState {
-  const factory _HomeState({final int count}) = _$_HomeState;
+  const factory _HomeState(
+      {final int count,
+      final List<String> chipText,
+      final int choiceIndex,
+      final String selectData,
+      final String time}) = _$_HomeState;
 
   @override
   int get count;
+  @override
+  List<String> get chipText;
+  @override
+  int get choiceIndex;
+  @override
+  String get selectData;
+  @override
+  String get time;
   @override
   @JsonKey(ignore: true)
   _$$_HomeStateCopyWith<_$_HomeState> get copyWith =>

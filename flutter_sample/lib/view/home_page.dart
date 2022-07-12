@@ -1,13 +1,29 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../view_model/home_notifier.dart';
 
-class HomePage extends ConsumerWidget {
+class HomePage extends ConsumerStatefulWidget {
   const HomePage({Key? key}) : super(key: key);
+
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  HomePageState createState() => HomePageState();
+}
+
+class HomePageState extends ConsumerState<HomePage> {
+  @override
+  void initState() {
+    super.initState();
+    final homeNotifier = ref.read(homeProvider.notifier);
+
+    Timer.periodic(const Duration(seconds: 1), homeNotifier.getTime);
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final homeState = ref.watch(homeProvider);
     final homeNotifier = ref.watch(homeProvider.notifier);
 
@@ -87,14 +103,31 @@ class HomePage extends ConsumerWidget {
                   child: Card(
                     child: Center(
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          const Text(
-                            'You have pushed the button this many times:',
+                        children: [
+                          const SizedBox(
+                            height: 20,
                           ),
                           Text(
-                            '${homeState.count}',
+                            homeState.selectData,
                             style: Theme.of(context).textTheme.headline4,
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Wrap(
+                            spacing: 5,
+                            children: [
+                              for (int i = 0; i < homeState.chipText.length; i++)
+                                ChoiceChip(
+                                  label: Text(
+                                    homeState.chipText[i],
+                                  ),
+                                  selected: homeState.choiceIndex == i,
+                                  onSelected: (bool selected) {
+                                    homeNotifier.selectChip(selected, i);
+                                  },
+                                ),
+                            ],
                           ),
                         ],
                       ),
@@ -107,17 +140,9 @@ class HomePage extends ConsumerWidget {
                   padding: const EdgeInsets.all(40),
                   child: Card(
                     child: Center(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          const Text(
-                            'You have pushed the button this many times:',
-                          ),
-                          Text(
-                            '${homeState.count}',
-                            style: Theme.of(context).textTheme.headline4,
-                          ),
-                        ],
+                      child: Text(
+                        homeState.time,
+                        style: Theme.of(context).textTheme.headline4,
                       ),
                     ),
                   ),
