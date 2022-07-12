@@ -78,8 +78,9 @@ class HomePageState extends ConsumerState<HomePage> {
                 Container(
                   height: 400,
                   width: 400,
-                  padding: const EdgeInsets.only(left: 40, right: 40, top: 20, bottom: 20),
+                  padding: const EdgeInsets.only(left: 40, right: 40, top: 20),
                   child: Card(
+                    elevation: 5,
                     child: Center(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -99,8 +100,9 @@ class HomePageState extends ConsumerState<HomePage> {
                 Container(
                   height: 400,
                   width: 400,
-                  padding: const EdgeInsets.all(40),
+                  padding: const EdgeInsets.only(left: 40, right: 40, top: 20),
                   child: Card(
+                    elevation: 5,
                     child: Center(
                       child: Column(
                         children: [
@@ -137,8 +139,9 @@ class HomePageState extends ConsumerState<HomePage> {
                 Container(
                   height: 400,
                   width: 400,
-                  padding: const EdgeInsets.all(40),
+                  padding: const EdgeInsets.only(left: 40, right: 40, top: 20),
                   child: Card(
+                    elevation: 5,
                     child: Center(
                       child: Text(
                         homeState.time,
@@ -150,8 +153,9 @@ class HomePageState extends ConsumerState<HomePage> {
                 Container(
                   height: 400,
                   width: 400,
-                  padding: const EdgeInsets.all(40),
+                  padding: const EdgeInsets.only(left: 40, right: 40, top: 20),
                   child: Card(
+                    elevation: 5,
                     child: Center(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -184,8 +188,9 @@ class HomePageState extends ConsumerState<HomePage> {
                 Container(
                   height: 400,
                   width: 400,
-                  padding: const EdgeInsets.all(40),
+                  padding: const EdgeInsets.only(left: 40, right: 40, top: 20),
                   child: Card(
+                    elevation: 5,
                     child: Center(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -205,8 +210,9 @@ class HomePageState extends ConsumerState<HomePage> {
                 Container(
                   height: 400,
                   width: 400,
-                  padding: const EdgeInsets.all(40),
+                  padding: const EdgeInsets.only(left: 40, right: 40, top: 20),
                   child: Card(
+                    elevation: 5,
                     child: Center(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -226,8 +232,9 @@ class HomePageState extends ConsumerState<HomePage> {
                 Container(
                   height: 400,
                   width: 400,
-                  padding: const EdgeInsets.all(40),
+                  padding: const EdgeInsets.only(left: 40, right: 40, top: 20),
                   child: Card(
+                    elevation: 5,
                     child: Center(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
