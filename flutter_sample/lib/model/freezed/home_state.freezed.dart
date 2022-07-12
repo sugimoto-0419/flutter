@@ -21,6 +21,7 @@ mixin _$HomeState {
   int get choiceIndex => throw _privateConstructorUsedError;
   String get selectData => throw _privateConstructorUsedError;
   String get time => throw _privateConstructorUsedError;
+  bool get isEditable => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomeStateCopyWith<HomeState> get copyWith =>
@@ -36,7 +37,8 @@ abstract class $HomeStateCopyWith<$Res> {
       List<String> chipText,
       int choiceIndex,
       String selectData,
-      String time});
+      String time,
+      bool isEditable});
 }
 
 /// @nodoc
@@ -54,6 +56,7 @@ class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
     Object? choiceIndex = freezed,
     Object? selectData = freezed,
     Object? time = freezed,
+    Object? isEditable = freezed,
   }) {
     return _then(_value.copyWith(
       count: count == freezed
@@ -76,6 +79,10 @@ class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
               as String,
+      isEditable: isEditable == freezed
+          ? _value.isEditable
+          : isEditable // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -91,7 +98,8 @@ abstract class _$$_HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
       List<String> chipText,
       int choiceIndex,
       String selectData,
-      String time});
+      String time,
+      bool isEditable});
 }
 
 /// @nodoc
@@ -111,6 +119,7 @@ class __$$_HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
     Object? choiceIndex = freezed,
     Object? selectData = freezed,
     Object? time = freezed,
+    Object? isEditable = freezed,
   }) {
     return _then(_$_HomeState(
       count: count == freezed
@@ -133,6 +142,10 @@ class __$$_HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
               as String,
+      isEditable: isEditable == freezed
+          ? _value.isEditable
+          : isEditable // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -154,7 +167,8 @@ class _$_HomeState with DiagnosticableTreeMixin implements _HomeState {
       ],
       this.choiceIndex = 0,
       this.selectData = '北海道',
-      this.time = '00:00:00'})
+      this.time = '00:00:00',
+      this.isEditable = false})
       : _chipText = chipText;
 
   @override
@@ -177,10 +191,13 @@ class _$_HomeState with DiagnosticableTreeMixin implements _HomeState {
   @override
   @JsonKey()
   final String time;
+  @override
+  @JsonKey()
+  final bool isEditable;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'HomeState(count: $count, chipText: $chipText, choiceIndex: $choiceIndex, selectData: $selectData, time: $time)';
+    return 'HomeState(count: $count, chipText: $chipText, choiceIndex: $choiceIndex, selectData: $selectData, time: $time, isEditable: $isEditable)';
   }
 
   @override
@@ -192,7 +209,8 @@ class _$_HomeState with DiagnosticableTreeMixin implements _HomeState {
       ..add(DiagnosticsProperty('chipText', chipText))
       ..add(DiagnosticsProperty('choiceIndex', choiceIndex))
       ..add(DiagnosticsProperty('selectData', selectData))
-      ..add(DiagnosticsProperty('time', time));
+      ..add(DiagnosticsProperty('time', time))
+      ..add(DiagnosticsProperty('isEditable', isEditable));
   }
 
   @override
@@ -206,7 +224,9 @@ class _$_HomeState with DiagnosticableTreeMixin implements _HomeState {
                 .equals(other.choiceIndex, choiceIndex) &&
             const DeepCollectionEquality()
                 .equals(other.selectData, selectData) &&
-            const DeepCollectionEquality().equals(other.time, time));
+            const DeepCollectionEquality().equals(other.time, time) &&
+            const DeepCollectionEquality()
+                .equals(other.isEditable, isEditable));
   }
 
   @override
@@ -216,7 +236,8 @@ class _$_HomeState with DiagnosticableTreeMixin implements _HomeState {
       const DeepCollectionEquality().hash(_chipText),
       const DeepCollectionEquality().hash(choiceIndex),
       const DeepCollectionEquality().hash(selectData),
-      const DeepCollectionEquality().hash(time));
+      const DeepCollectionEquality().hash(time),
+      const DeepCollectionEquality().hash(isEditable));
 
   @JsonKey(ignore: true)
   @override
@@ -230,7 +251,8 @@ abstract class _HomeState implements HomeState {
       final List<String> chipText,
       final int choiceIndex,
       final String selectData,
-      final String time}) = _$_HomeState;
+      final String time,
+      final bool isEditable}) = _$_HomeState;
 
   @override
   int get count;
@@ -242,6 +264,8 @@ abstract class _HomeState implements HomeState {
   String get selectData;
   @override
   String get time;
+  @override
+  bool get isEditable;
   @override
   @JsonKey(ignore: true)
   _$$_HomeStateCopyWith<_$_HomeState> get copyWith =>

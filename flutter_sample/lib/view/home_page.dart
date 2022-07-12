@@ -156,12 +156,25 @@ class HomePageState extends ConsumerState<HomePage> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          const Text(
-                            'You have pushed the button this many times:',
+                          ChoiceChip(
+                            label: const Text(
+                              '編集',
+                            ),
+                            selected: homeState.isEditable,
+                            selectedColor: Colors.red[300],
+                            onSelected: (bool selected) {
+                              homeNotifier.editSelect(selected);
+                            },
                           ),
-                          Text(
-                            '${homeState.count}',
-                            style: Theme.of(context).textTheme.headline4,
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          SizedBox(
+                            width: 200,
+                            child: TextField(
+                              enabled: homeState.isEditable,
+                              maxLength: 20,
+                            ),
                           ),
                         ],
                       ),

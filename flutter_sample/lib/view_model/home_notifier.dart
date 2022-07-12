@@ -28,6 +28,10 @@ class HomeNotifier extends StateNotifier<HomeState> {
 
     state = state.copyWith(time: timeString);
   }
+
+  void editSelect(bool selected) async {
+    state = state.copyWith(isEditable: selected);
+  }
 }
 
 final homeProvider = StateNotifierProvider.autoDispose<HomeNotifier, HomeState>(

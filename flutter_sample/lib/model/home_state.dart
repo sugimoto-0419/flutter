@@ -11,5 +11,6 @@ class HomeState with _$HomeState {
     @Default(0) int choiceIndex,
     @Default('北海道') String selectData,
     @Default('00:00:00') String time,
+    @Default(false) bool isEditable,
   }) = _HomeState;
 }
