@@ -274,7 +274,7 @@ class HomePageState extends ConsumerState<HomePage> {
                             '4',
                           ),
                           Text(
-                            '3',
+                            '5',
                           ),
                           Text(
                             '3',
