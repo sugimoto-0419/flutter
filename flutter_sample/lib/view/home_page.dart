@@ -251,6 +251,24 @@ class HomePageState extends ConsumerState<HomePage> {
                     ),
                   ),
                 ),
+                Container(
+                  height: 400,
+                  width: 400,
+                  padding: const EdgeInsets.only(left: 40, right: 40, top: 20),
+                  child: Card(
+                    elevation: 5,
+                    child: Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          const Text(
+                            'You have pushed the button this many times:',
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
