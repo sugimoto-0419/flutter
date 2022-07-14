@@ -260,9 +260,12 @@ class HomePageState extends ConsumerState<HomePage> {
                     child: Center(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          const Text(
-                            'You have pushed the button this many times:',
+                        children: const <Widget>[
+                          Text(
+                            '1',
+                          ),
+                          Text(
+                            '2',
                           ),
                         ],
                       ),
